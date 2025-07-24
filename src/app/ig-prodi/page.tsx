@@ -1,8 +1,8 @@
-// src/app/ig-prodi/page.tsx
 'use client'; // Penting karena komponen IgProdiGallery interaktif
 
 import React from 'react';
 import { IgProdiGallery } from '@/components/masonry/igProdiGallery'; // Ini sudah mengarah ke IgProdiGallery yang benar
+import Link from 'next/link'; // Import komponen Link dari next/link
 
 const IgProdiPage = () => {
   return (
@@ -15,13 +15,14 @@ const IgProdiPage = () => {
       </p>
       {/* Tombol kembali ke halaman utama */}
       <div className="text-center mt-12">
-        <a
+        {/* Mengganti <a> dengan <Link> */}
+        <Link
           href="/"
           className="inline-block relative rounded-full px-6 py-3 overflow-hidden group bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 text-gray-300 font-medium hover:ring-2 hover:ring-offset-2 hover:ring-indigo-400 transition-all duration-300"
         >
           <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-20 rotate-12 group-hover:-translate-x-40 ease"></span>
           <span className="relative z-10">Back To Home</span>
-        </a>
+        </Link>
       </div>
 
       <div className="flex justify-center items-center mt-15">
