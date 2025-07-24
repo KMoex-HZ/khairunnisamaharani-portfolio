@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, useRef } from "react";
+import Image from 'next/image'; // Pastikan ini sudah diimpor
 
 const ProjectSection = () => {
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
@@ -22,16 +23,19 @@ const ProjectSection = () => {
       { threshold: 0.2 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    // FIX: Ambil nilai current dari ref sebelum cleanup function dijalankan
+    const currentSectionRef = sectionRef.current; 
+    if (currentSectionRef) {
+      observer.observe(currentSectionRef);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      // FIX: Gunakan nilai yang sudah disimpan
+      if (currentSectionRef) {
+        observer.unobserve(currentSectionRef);
       }
     };
-  }, [visibleCards]);
+  }, [visibleCards]); // `sectionRef` tidak perlu di dependency array karena sudah diambil di luar closure `return`
 
   const projects = [
     {
@@ -72,12 +76,20 @@ const ProjectSection = () => {
           `}
           style={{ animationDelay: `${i * 0.3}s` }}
         >
-          {/* IMAGE */}
+          {/* IMAGE - PERBAIKAN DI SINI */}
           <div className="relative flex items-center justify-center w-[35%] min-w-[300px] max-w-[500px] cursor-pointer transition duration-500 mix-blend-exclusion autoBlur project-vidbox">
-            <img
+            <Image
               src={proj.img}
               alt={proj.title}
+              // Tambahkan properti width dan height. Sesuaikan dengan dimensi asli gambar
+              // atau perkiraan dimensi yang paling sering muncul.
+              // Jika Abang ingin gambar mengisi container parent (project-vidbox),
+              // gunakan 'fill' dan 'sizes' properti, serta pastikan parent memiliki position: 'relative'.
+              // Saya akan asumsikan Abang ingin memberikan dimensi eksplisit terlebih dahulu.
+              width={500} // Sesuaikan dengan lebar asli atau yang diinginkan
+              height={300} // Sesuaikan dengan tinggi asli atau yang diinginkan
               className="w-full object-contain rounded-[20px] shadow-md transition duration-500 hover:shadow-white border-4 border-gray-700"
+              priority={i === 0} // Mengoptimalkan LCP untuk gambar pertama jika itu yang paling penting
             />
             <div className="hover-sign"></div>
           </div>

@@ -5,6 +5,7 @@ import {
   motion,
 } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
+import Image from 'next/image'; // Impor komponen Image
 
 interface TimelineEntry {
   id: string;
@@ -45,9 +46,9 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           Changelog from my journey
         </h2>
         <p className="text-gray-300 text-lg">
-          I've been working on Sumatera Institute of Technology for the past 2 years. Here's a timeline of my journey.
-          I've been working on Sumatera Institute of Technology for the past 2 years. Here's a timeline of my journey.
-          I've been working on Sumatera Institute of Technology for the past 2 years. Here's a timeline of my journey.
+          I&apos;ve been working on Sumatera Institute of Technology for the past 2 years. Here&apos;s a timeline of my journey.
+          I&apos;ve been working on Sumatera Institute of Technology for the past 2 years. Here&apos;s a timeline of my journey.
+          I&apos;ve been working on Sumatera Institute of Technology for the past 2 years. Here&apos;s a timeline of my journey.
         </p>
       </div>
 
@@ -88,10 +89,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 <div className="mt-4 md:mt-8 grid grid-cols-2 gap-5">
                   {item.images.map((imgSrc, imgIndex) => (
                     <div key={imgIndex} className="relative w-full pb-[125%]">
-                      <img
+                      {/* PERBAIKAN IMAGE DI SINI */}
+                      <Image
                         src={imgSrc}
                         alt={`${item.title} - Gambar ${imgIndex + 1}`}
-                        className="absolute inset-0 w-full h-full object-cover rounded-lg shadow-lg"
+                        fill // Gunakan 'fill' karena ukuran gambar bisa berbeda
+                        style={{ objectFit: 'cover', borderRadius: '0.5rem' }} // object-cover dan rounded-lg
+                        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 30vw, 25vw" // Sesuaikan perkiraan ukuran
                       />
                     </div>
                   ))}

@@ -2,10 +2,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import "boxicons/css/boxicons.min.css";
 import "animate.css";
+import Image from 'next/image';
 
 const Skills = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
-  const skillsRef = useRef(null);
+  const skillsRef = useRef<HTMLElement>(null); 
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -17,13 +18,15 @@ const Skills = () => {
       { threshold: 0.1 }
     );
 
-    if (skillsRef.current) {
-      observer.observe(skillsRef.current);
+    const currentSkillsRef = skillsRef.current; 
+
+    if (currentSkillsRef) {
+      observer.observe(currentSkillsRef);
     }
 
     return () => {
-      if (skillsRef.current) {
-        observer.unobserve(skillsRef.current);
+      if (currentSkillsRef) {
+        observer.unobserve(currentSkillsRef);
       }
     };
   }, [hasAnimated]);
@@ -51,7 +54,7 @@ const Skills = () => {
           Data Science & Design <i className="bx bx-brain"></i>
         </h1>
         <p className="text-lg leading-relaxed">
-          I’m a data science student who loves combining logic and creativity.
+          I&apos;m a data science student who loves combining logic and creativity.
           I enjoy building AI-powered tools, exploring trends with Python & SQL,
           and making things visually satisfying with Figma and TailwindCSS.
           I care about making things both useful and beautiful.
@@ -63,15 +66,28 @@ const Skills = () => {
         hasAnimated ? 'animate__animated animate__fadeInUp animate__delay-0_9s' : 'opacity-0'
       }`}>
         <div className="slider overflow-hidden w-full">
+          {/* Perhatikan penambahan 'relative' pada elemen 'item' */}
           <div className="list flex animate-slider-loop">
             {[...Array(17).fill(null).map((_, i) => (
-              <div className="item min-w-[120px] p-2" key={`original-${i}`}>
-                <img src={`images/skills/${i + 1}.png`} alt={`skill-${i + 1}`} />
+              <div className="item min-w-[120px] p-2 relative" key={`original-${i}`}> 
+                <Image
+                  src={`/images/skills/${i + 1}.png`} 
+                  alt={`skill-${i + 1}`}
+                  fill // Mengisi parent element
+                  style={{ objectFit: 'contain' }} // Penting: Agar gambar tidak terpotong dan mempertahankan rasio
+                  sizes="(max-width: 768px) 100px, 120px" // Memberi tahu Next.js perkiraan ukuran di berbagai breakpoint
+                />
               </div>
             )),
             ...Array(17).fill(null).map((_, i) => (
-              <div className="item min-w-[120px] p-2" key={`duplicate-${i}`}>
-                <img src={`images/skills/${i + 1}.png`} alt={`skill-copy-${i + 1}`} />
+              <div className="item min-w-[120px] p-2 relative" key={`duplicate-${i}`}>
+                <Image
+                  src={`/images/skills/${i + 1}.png`} 
+                  alt={`skill-copy-${i + 1}`}
+                  fill 
+                  style={{ objectFit: 'contain' }}
+                  sizes="(max-width: 768px) 100px, 120px"
+                />
               </div>
             ))]}
           </div>

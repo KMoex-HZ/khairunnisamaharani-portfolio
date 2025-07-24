@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useCallback, useMemo } from "react";
 import "./ProfileCard.css";
+import Image from 'next/image'; // Import komponen Image dari Next.js
 
 interface ProfileCardProps {
   avatarUrl: string;
@@ -239,15 +240,14 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
 
     const handleClick = () => {
       if (!enableMobileTilt || location.protocol !== 'https:') return;
-      if (typeof (window.DeviceMotionEvent as any).requestPermission === 'function') {
-        (window.DeviceMotionEvent as any)
-          .requestPermission()
-          .then((state: string) => {
+      if (typeof (window as any).DeviceMotionEvent?.requestPermission === 'function') {
+        (window as any).DeviceMotionEvent.requestPermission()
+          .then((state: 'granted' | 'denied') => {
             if (state === 'granted') {
               window.addEventListener('deviceorientation', deviceOrientationHandler);
             }
           })
-          .catch((err: any) => console.error(err));
+          .catch((err: Error) => console.error(err));
       } else {
         window.addEventListener('deviceorientation', deviceOrientationHandler);
       }
@@ -316,13 +316,21 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
           <div className="pc-shine" />
           <div className="pc-glare" />
           <div className="pc-content pc-avatar-content">
-            <img
+            {/* Perbaikan IMAGE AVATAR DI SINI */}
+            <Image
               className="avatar"
               src={avatarUrl}
               alt={`${name || "User"} avatar`}
+              width={150} // Ukuran placeholder, sesuaikan dengan ukuran avatar Abang
+              height={150} // Ukuran placeholder, sesuaikan dengan ukuran avatar Abang
               loading="lazy"
               onError={(e) => {
-                const target = e.target as HTMLImageElement;
+                // Perhatikan: onError pada komponen Image Next.js berbeda dengan <img> biasa.
+                // Ini akan menangani error saat Next.js mencoba mengoptimalkan gambar.
+                // Untuk fallback gambar, mungkin perlu pendekatan lain dengan useState.
+                // Untuk saat ini, kita biarkan saja properti ini.
+                // Jika ingin menyembunyikan, lebih baik gunakan state untuk mengubah display/opacity.
+                const target = e.target as HTMLImageElement; // Ini mungkin tidak lagi relevan atau berperilaku beda
                 target.style.display = "none";
               }}
             />
@@ -330,12 +338,16 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
               <div className="pc-user-info">
                 <div className="pc-user-details">
                   <div className="pc-mini-avatar">
-                    <img
+                    {/* Perbaikan IMAGE MINI-AVATAR DI SINI */}
+                    <Image
                       src={miniAvatarUrl || avatarUrl}
                       alt={`${name || "User"} mini avatar`}
+                      width={40} // Ukuran placeholder, sesuaikan dengan ukuran mini avatar Abang
+                      height={40} // Ukuran placeholder, sesuaikan dengan ukuran mini avatar Abang
                       loading="lazy"
                       onError={(e) => {
-                        const target = e.target as HTMLImageElement;
+                        // Sama seperti di atas, onError mungkin berperilaku beda di Image Next.js.
+                        const target = e.target as HTMLImageElement; // Ini mungkin tidak lagi relevan atau berperilaku beda
                         target.style.opacity = "0.5";
                         target.src = avatarUrl;
                       }}

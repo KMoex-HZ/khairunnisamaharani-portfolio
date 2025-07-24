@@ -37,7 +37,7 @@ const About = () => {
               : 'opacity-0'
           }`}
         >
-          Hi I'm <span className="gradient">Khairunnisa</span> Maharani
+          Hi I&apos;m <span className="gradient">Khairunnisa</span> Maharani
         </h1>
 
         <h2
@@ -57,7 +57,7 @@ const About = () => {
               : 'opacity-0'
           }`}
         >
-          I'm passionate about data, AI, and building impactful digital solutions. This portfolio showcases my journey in technology, learning, and growth.
+          I&apos;m passionate about data, AI, and building impactful digital solutions. This portfolio showcases my journey in technology, learning, and growth.
         </p>
 
         <div

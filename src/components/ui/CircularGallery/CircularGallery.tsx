@@ -15,14 +15,10 @@ type GL = Renderer["gl"];
 
 function debounce<T extends (...args: any[]) => void>(func: T, wait: number) {
   let timeout: number;
-  return function (this: any, ...args: Parameters<T>) {
+  return function (this: ThisParameterType<T>, ...args: Parameters<T>) {
     window.clearTimeout(timeout);
     timeout = window.setTimeout(() => func.apply(this, args), wait);
   };
-}
-
-function lerp(p1: number, p2: number, t: number): number {
-  return p1 + (p2 - p1) * t;
 }
 
 function autoBind(instance: any): void {
@@ -35,7 +31,7 @@ function autoBind(instance: any): void {
 }
 
 function getFontSize(font: string): number {
-  const match = font.match(/(\d+)px/);
+  const match = font.match(/(\\d+)px/);
   return match ? parseInt(match[1], 10) : 30;
 }
 
@@ -495,7 +491,7 @@ class App {
     last: number;
     position?: number;
   };
-  onCheckDebounce: (...args: any[]) => void;
+  onCheckDebounce: () => void;
   renderer!: Renderer;
   gl!: GL;
   camera!: Camera;
@@ -507,19 +503,24 @@ class App {
   viewport!: { width: number; height: number };
   raf: number = 0;
 
-  boundOnResize!: () => void;
-  boundOnWheel!: (e: Event) => void;
-  boundOnTouchDown!: (e: MouseEvent | TouchEvent) => void;
-  boundOnTouchMove!: (e: MouseEvent | TouchEvent) => void;
-  boundOnTouchUp!: () => void;
+  // Mengubah tipe boundOnWheel menjadi EventListener agar kompatibel dengan addEventListener
+  boundOnResize!: EventListener;
+  boundOnWheel!: EventListener;
+  boundOnTouchDown!: EventListener;
+  boundOnTouchMove!: EventListener;
+  boundOnTouchUp!: EventListener;
 
   isDown: boolean = false;
   start: number = 0;
 
+  static lerp(p1: number, p2: number, t: number): number {
+    return p1 + (p2 - p1) * t;
+  }
+
   constructor(
     container: HTMLElement,
     {
-      items = DEFAULT_GALLERY_ITEMS, // Gunakan DEFAULT_GALLERY_ITEMS sebagai nilai default
+      items = DEFAULT_GALLERY_ITEMS,
       bend = 1,
       textColor = "#ffffff",
       borderRadius = 0,
@@ -538,7 +539,7 @@ class App {
     this.createScene();
     this.onResize();
     this.createGeometry();
-    this.createMedias(items, bend, textColor, borderRadius, font); // Kirim 'items' ke createMedias
+    this.createMedias(items, bend, textColor, borderRadius, font);
     this.update();
     this.addEventListeners();
   }
@@ -568,14 +569,13 @@ class App {
   }
 
   createMedias(
-    items: { image: string; text: string }[], // Ubah ini agar tidak opsional lagi di sini
+    items: { image: string; text: string }[],
     bend: number = 1,
     textColor: string,
     borderRadius: number,
     font: string,
   ) {
-    // defaultItems sudah tidak perlu di sini karena sudah diatur di constructor AppConfig
-    const galleryItems = items; // Langsung gunakan items yang diterima
+    const galleryItems = items;
     this.mediasImages = galleryItems.concat(galleryItems);
     this.medias = this.mediasImages.map((data, index) => {
       return new Media({
@@ -615,12 +615,11 @@ class App {
     this.onCheck();
   }
 
-  onWheel(e: Event) {
-    const wheelEvent = e as WheelEvent;
+  onWheel(e: WheelEvent) {
     const delta =
-      wheelEvent.deltaY ||
-      (wheelEvent as any).wheelDelta ||
-      (wheelEvent as any).detail;
+      e.deltaY ||
+      (e as any).wheelDelta ||
+      (e as any).detail;
     this.scroll.target += delta > 0 ? this.scrollSpeed : -this.scrollSpeed;
     this.onCheckDebounce();
   }
@@ -654,7 +653,7 @@ class App {
   }
 
   update() {
-    this.scroll.current = lerp(
+    this.scroll.current = App.lerp(
       this.scroll.current,
       this.scroll.target,
       this.scroll.ease,
@@ -669,33 +668,56 @@ class App {
   }
 
   addEventListeners() {
-    this.boundOnResize = this.onResize.bind(this);
-    this.boundOnWheel = this.onWheel.bind(this);
-    this.boundOnTouchDown = this.onTouchDown.bind(this);
-    this.boundOnTouchMove = this.onTouchMove.bind(this);
-    this.boundOnTouchUp = this.onTouchUp.bind(this);
+    // Memastikan setiap bound event handler di-cast ke EventListener
+    // Ini adalah Type Assertion yang diperlukan agar cocok dengan EventListener
+    this.boundOnResize = this.onResize.bind(this) as EventListener;
+    this.boundOnWheel = this.onWheel.bind(this) as EventListener;
+    this.boundOnTouchDown = this.onTouchDown.bind(this) as EventListener;
+    this.boundOnTouchMove = this.onTouchMove.bind(this) as EventListener;
+    this.boundOnTouchUp = this.onTouchUp.bind(this) as EventListener;
+
     window.addEventListener("resize", this.boundOnResize);
-    window.addEventListener("mousewheel", this.boundOnWheel);
-    window.addEventListener("wheel", this.boundOnWheel);
+    window.addEventListener("wheel", this.boundOnWheel); // Tidak perlu 'as EventListener' lagi di sini
     window.addEventListener("mousedown", this.boundOnTouchDown);
     window.addEventListener("mousemove", this.boundOnTouchMove);
     window.addEventListener("mouseup", this.boundOnTouchUp);
     window.addEventListener("touchstart", this.boundOnTouchDown);
     window.addEventListener("touchmove", this.boundOnTouchMove);
     window.addEventListener("touchend", this.boundOnTouchUp);
+
+    // Menambahkan event listener ke containerRef (div utama) juga,
+    // karena `window` mungkin terlalu umum untuk interaksi geser di dalam elemen spesifik.
+    // Ini perlu diletakkan di dalam useEffect di komponen fungsional CircularGallery
+    // atau jika App class memiliki akses ke containerRef langsung.
+    // Karena App class menerima container di constructor, kita bisa menambahkannya di sini.
+    this.container.addEventListener("mousedown", this.boundOnTouchDown);
+    this.container.addEventListener("mousemove", this.boundOnTouchMove);
+    this.container.addEventListener("mouseup", this.boundOnTouchUp);
+    this.container.addEventListener("touchstart", this.boundOnTouchDown);
+    this.container.addEventListener("touchmove", this.boundOnTouchMove);
+    this.container.addEventListener("touchend", this.boundOnTouchUp);
+
   }
 
   destroy() {
     window.cancelAnimationFrame(this.raf);
     window.removeEventListener("resize", this.boundOnResize);
-    window.removeEventListener("mousewheel", this.boundOnWheel);
-    window.removeEventListener("wheel", this.boundOnWheel);
+    window.removeEventListener("wheel", this.boundOnWheel); // Tidak perlu 'as EventListener' lagi di sini
     window.removeEventListener("mousedown", this.boundOnTouchDown);
     window.removeEventListener("mousemove", this.boundOnTouchMove);
     window.removeEventListener("mouseup", this.boundOnTouchUp);
     window.removeEventListener("touchstart", this.boundOnTouchDown);
     window.removeEventListener("touchmove", this.boundOnTouchMove);
     window.removeEventListener("touchend", this.boundOnTouchUp);
+
+    // Hapus juga event listener dari container
+    this.container.removeEventListener("mousedown", this.boundOnTouchDown);
+    this.container.removeEventListener("mousemove", this.boundOnTouchMove);
+    this.container.removeEventListener("mouseup", this.boundOnTouchUp);
+    this.container.removeEventListener("touchstart", this.boundOnTouchDown);
+    this.container.removeEventListener("touchmove", this.boundOnTouchMove);
+    this.container.removeEventListener("touchend", this.boundOnTouchUp);
+    
     if (
       this.renderer &&
       this.renderer.gl &&
@@ -719,7 +741,7 @@ interface CircularGalleryProps {
 }
 
 export default function CircularGallery({
-  items = DEFAULT_GALLERY_ITEMS, // Gunakan DEFAULT_GALLERY_ITEMS sebagai nilai default di sini juga
+  items = DEFAULT_GALLERY_ITEMS,
   bend = 3,
   textColor = "#ffffff",
   borderRadius = 0.05,
@@ -749,7 +771,6 @@ export default function CircularGallery({
     className="absolute inset-0"
     ref={containerRef}
   />
-    {/* Overlay link, kira-kira posisinya di tengah */}
     <div className="absolute inset-0 pointer-events-none">
       <div className="flex justify-center items-center h-full gap-6">
         {items.map((item, index) => (

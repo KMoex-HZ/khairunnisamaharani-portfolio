@@ -38,7 +38,7 @@ export const myExperiences = [
     title: "Aug 2023 – Present",
     content: (
       <div className="text-neutral-700 dark:text-neutral-300">
-        <p className="text-4xl font-bold text-center text-gray-300 mb-2 gradient">Bachelor's Degree in Data Science - ITERA</p>
+        <p className="text-4xl font-bold text-center text-gray-300 mb-2 gradient">Bachelor&apos;s Degree in Data Science - ITERA</p>
         <p className="text-gray-300 text-center md:text-lg">
           Menempuh pendidikan S1 Data Science di Institut Teknologi Sumatera. Aktif dalam berbagai organisasi, lomba nasional, serta pengembangan project dan riset.
         </p>

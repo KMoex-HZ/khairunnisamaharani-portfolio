@@ -25,7 +25,7 @@ const Contact = () => {
         viewport={{ once: true }}
         variants={fadeUp(0)}
       >
-        Let's talk
+        Let&apos;s talk
       </motion.h1>
 
       {/* Konten utama: kiri & kanan */}
@@ -39,7 +39,7 @@ const Contact = () => {
           variants={fadeUp(0.2)}
         >
           <p className="text-base text-gray-400 text-lg mb-10">
-            Feel free to reach out to me through any of the platforms below. I’m always open to opportunities, collaboration, or simply a chat.
+            Feel free to reach out to me through any of the platforms below. I&apos;m always open to opportunities, collaboration, or simply a chat.
           </p>
 
           <a href="https://linkedin.com/in/yourlinkedin" className="flex items-center">
