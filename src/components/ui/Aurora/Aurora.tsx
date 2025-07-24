@@ -123,7 +123,8 @@ export default function Aurora(props: AuroraProps) {
     blend = 0.5,
   } = props;
   const propsRef = useRef<AuroraProps>(props);
-  propsRef.current = props;
+  // FIX: Hapus baris ini karena propsRef.current = props akan menyebabkan warning
+  // propsRef.current = props; 
 
   const ctnDom = useRef<HTMLDivElement>(null);
 
@@ -142,59 +143,50 @@ export default function Aurora(props: AuroraProps) {
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     gl.canvas.style.backgroundColor = "transparent";
 
-    let program: Program | undefined;
-
-    function resize() {
-      if (!ctn) return;
-      const width = ctn.offsetWidth;
-      const height = ctn.offsetHeight;
-      renderer.setSize(width, height);
-      if (program) {
-        program.uniforms.uResolution.value = [width, height];
-      }
-    }
-    window.addEventListener("resize", resize);
-
-    const geometry = new Triangle(gl);
-    if (geometry.attributes.uv) {
-      delete geometry.attributes.uv;
-    }
-
-    const colorStopsArray = colorStops.map((hex) => {
-      const c = new Color(hex);
-      return [c.r, c.g, c.b];
-    });
-
-    program = new Program(gl, {
+    // FIX: Ubah 'let program' menjadi 'const program'
+    const program = new Program(gl, {
       vertex: VERT,
       fragment: FRAG,
       uniforms: {
         uTime: { value: 0 },
         uAmplitude: { value: amplitude },
-        uColorStops: { value: colorStopsArray },
+        uColorStops: { value: colorStops.map(hex => { // Menggunakan colorStops langsung dari props default
+          const c = new Color(hex);
+          return [c.r, c.g, c.b];
+        })},
         uResolution: { value: [ctn.offsetWidth, ctn.offsetHeight] },
         uBlend: { value: blend },
       },
     });
 
-    const mesh = new Mesh(gl, { geometry, program });
+    const mesh = new Mesh(gl, { geometry: new Triangle(gl), program }); // Buat geometry di sini agar terikat program yang baru
     ctn.appendChild(gl.canvas);
+
+    function resize() {
+      if (!ctn) return; // Pastikan ctn ada saat resize
+      const width = ctn.offsetWidth;
+      const height = ctn.offsetHeight;
+      renderer.setSize(width, height);
+      // 'program' sekarang 'const', jadi bisa langsung diakses
+      program.uniforms.uResolution.value = [width, height]; 
+    }
+    window.addEventListener("resize", resize);
 
     let animateId = 0;
     const update = (t: number) => {
       animateId = requestAnimationFrame(update);
-      const { time = t * 0.01, speed = 1.0 } = propsRef.current;
-      if (program) {
-        program.uniforms.uTime.value = time * speed * 0.1;
-        program.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 1.0;
-        program.uniforms.uBlend.value = propsRef.current.blend ?? blend;
-        const stops = propsRef.current.colorStops ?? colorStops;
-        program.uniforms.uColorStops.value = stops.map((hex: string) => {
-          const c = new Color(hex);
-          return [c.r, c.g, c.b];
-        });
-        renderer.render({ scene: mesh });
-      }
+      const { time = t * 0.01, speed = 1.0 } = propsRef.current; // Menggunakan propsRef.current untuk nilai terbaru
+      
+      program.uniforms.uTime.value = time * speed * 0.1;
+      program.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 1.0;
+      // FIX: Menambahkan 'blend' dan 'colorStops' ke dependency array
+      program.uniforms.uBlend.value = propsRef.current.blend ?? blend;
+      const stops = propsRef.current.colorStops ?? colorStops;
+      program.uniforms.uColorStops.value = stops.map((hex: string) => {
+        const c = new Color(hex);
+        return [c.r, c.g, c.b];
+      });
+      renderer.render({ scene: mesh });
     };
     animateId = requestAnimationFrame(update);
 
@@ -208,7 +200,11 @@ export default function Aurora(props: AuroraProps) {
       }
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
-  }, [amplitude]);
+  }, [
+    amplitude, // Tambahkan ini
+    blend, // Tambahkan ini
+    colorStops // Tambahkan ini
+  ]);
 
   return (
   <div

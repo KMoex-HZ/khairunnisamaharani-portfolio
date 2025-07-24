@@ -13,15 +13,18 @@ import { useEffect, useRef } from "react";
 
 type GL = Renderer["gl"];
 
-function debounce<T extends (...args: any[]) => void>(func: T, wait: number) {
-  let timeout: number;
+function debounce<T extends (...args: any[]) => void>(func: T, wait: number): (...args: Parameters<T>) => void {
+  let timeout: ReturnType<typeof setTimeout> | undefined;
   return function (this: ThisParameterType<T>, ...args: Parameters<T>) {
-    window.clearTimeout(timeout);
-    timeout = window.setTimeout(() => func.apply(this, args), wait);
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(() => func.apply(this, args), wait);
   };
 }
 
-function autoBind(instance: any): void {
+// KEMBALI KE DEFINISI autoBind INI (DENGAN 'any' UNTUK INSTANCE)
+function autoBind(instance: any): void { 
   const proto = Object.getPrototypeOf(instance);
   Object.getOwnPropertyNames(proto).forEach((key) => {
     if (key !== "constructor" && typeof instance[key] === "function") {
@@ -92,7 +95,7 @@ class Title {
     textColor = "#545050",
     font = "30px sans-serif",
   }: TitleProps) {
-    autoBind(this);
+    autoBind(this); // autoBind dipanggil di sini
     this.gl = gl;
     this.plane = plane;
     this.renderer = renderer;
@@ -217,6 +220,7 @@ class Media {
     borderRadius = 0,
     font,
   }: MediaProps) {
+    autoBind(this); // autoBind dipanggil di sini
     this.geometry = geometry;
     this.gl = gl;
     this.image = image;
@@ -618,8 +622,8 @@ class App {
   onWheel(e: WheelEvent) {
     const delta =
       e.deltaY ||
-      (e as any).wheelDelta ||
-      (e as any).detail;
+      (e as any).wheelDelta || // Tetap ada 'as any' di sini
+      (e as any).detail;      // Tetap ada 'as any' di sini
     this.scroll.target += delta > 0 ? this.scrollSpeed : -this.scrollSpeed;
     this.onCheckDebounce();
   }
