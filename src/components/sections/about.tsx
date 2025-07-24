@@ -103,7 +103,7 @@ const About = () => {
           }`}
         >
           <span className="bg-white/10 px-4 py-1 rounded-full">Sinta 2 Publication</span>
-          <span className="bg-white/10 px-4 py-1 rounded-full">Pertaminas Scholarship Finalist</span>
+          <span className="bg-white/10 px-4 py-1 rounded-full">Pertamina&apos;s Scholarship Finalist</span>
         </div>
       </div>
     </section>

@@ -413,64 +413,64 @@ class Media {
 // Tambahkan default items di sini
 const DEFAULT_GALLERY_ITEMS = [
   {
-    image: `images/certificates/c.png`,
-    text: "English",
-    link: "https://drive.google.com/file/d/1AgswDcLau6Yc8CpKMH-UdEOBbtz0Mac9/view?usp=sharing",
+    image: `images/certificates/1.jpg`,
+    text: "Lab Assistant",
+    link: "https://drive.google.com/drive/folders/1_s8Ys64LtQKw13AcqJGY4qNvV1QQAHL3?usp=drive_link",
   },
   {
-    image: `images/certificates/AIESEC.png`,
+    image: `images/certificates/2.jpg`,
+    text: "Lab Assistant 2",
+    link: "https://drive.google.com/drive/folders/1_s8Ys64LtQKw13AcqJGY4qNvV1QQAHL3?usp=drive_link",
+  },
+  {
+    image: `images/certificates/3.png`,
     text: "AIESEC",
-    link: "https://drive.google.com/file/d/1AgswDcLau6Yc8CpKMH-UdEOBbtz0Mac9/view?usp=sharing",
+    link: "https://drive.google.com/drive/folders/1_s8Ys64LtQKw13AcqJGY4qNvV1QQAHL3?usp=drive_link",
   },
   {
-    image: `https://picsum.photos/seed/3/800/600?grayscale`,
-    text: "Waterfall",
-    link: "https://drive.google.com/file/d/1AgswDcLau6Yc8CpKMH-UdEOBbtz0Mac9/view?usp=sharing",
+    image: `images/certificates/4.png`,
+    text: "English Gold",
+    link: "https://drive.google.com/drive/folders/1_s8Ys64LtQKw13AcqJGY4qNvV1QQAHL3?usp=drive_link",
   },
   {
-    image: `https://picsum.photos/seed/4/800/600?grayscale`,
-    text: "Strawberries",
-    link: "https://drive.google.com/file/d/1AgswDcLau6Yc8CpKMH-UdEOBbtz0Mac9/view?usp=sharing",
+    image: `images/certificates/5.jpg`,
+    text: "Math Silver",
+    link: "https://drive.google.com/drive/folders/1_s8Ys64LtQKw13AcqJGY4qNvV1QQAHL3?usp=drive_link",
   },
   {
-    image: `https://picsum.photos/seed/5/800/600?grayscale`,
-    text: "Deep Diving",
-    link: "https://drive.google.com/file/d/1AgswDcLau6Yc8CpKMH-UdEOBbtz0Mac9/view?usp=sharing",
+    image: `images/certificates/6.png`,
+    text: "PIC",
+    link: "https://drive.google.com/drive/folders/1_s8Ys64LtQKw13AcqJGY4qNvV1QQAHL3?usp=drive_link",
   },
   {
-    image: `https://picsum.photos/seed/16/800/600?grayscale`,
-    text: "Train Track",
-    link: "https://drive.google.com/file/d/1AgswDcLau6Yc8CpKMH-UdEOBbtz0Mac9/view?usp=sharing",
+    image: `images/certificates/7.jpg`,
+    text: "International Committee",
+    link: "https://drive.google.com/drive/folders/1_s8Ys64LtQKw13AcqJGY4qNvV1QQAHL3?usp=drive_link",
   },
   {
-    image: `https://picsum.photos/seed/17/800/600?grayscale`,
-    text: "Santorini",
-    link: "https://drive.google.com/file/d/1AgswDcLau6Yc8CpKMH-UdEOBbtz0Mac9/view?usp=sharing",
+    image: `images/certificates/8.jpeg`,
+    text: "English Debate",
+    link: "https://drive.google.com/drive/folders/1_s8Ys64LtQKw13AcqJGY4qNvV1QQAHL3?usp=drive_link",
   },
   {
-    image: `https://picsum.photos/seed/8/800/600?grayscale`,
-    text: "Blurry Lights",
-    link: "https://drive.google.com/file/d/1AgswDcLau6Yc8CpKMH-UdEOBbtz0Mac9/view?usp=sharing",
+    image: `images/certificates/9.jpg`,
+    text: "Machine Learning",
+    link: "https://drive.google.com/drive/folders/1_s8Ys64LtQKw13AcqJGY4qNvV1QQAHL3?usp=drive_link",
   },
   {
-    image: `https://picsum.photos/seed/9/800/600?grayscale`,
-    text: "New York",
-    link: "https://drive.google.com/file/d/1AgswDcLau6Yc8CpKMH-UdEOBbtz0Mac9/view?usp=sharing",
+    image: `images/certificates/10.jpg`,
+    text: "Graphic Intern",
+    link: "https://drive.google.com/drive/folders/1_s8Ys64LtQKw13AcqJGY4qNvV1QQAHL3?usp=drive_link",
   },
   {
-    image: `https://picsum.photos/seed/10/800/600?grayscale`,
-    text: "Good Boy",
-    link: "https://drive.google.com/file/d/1AgswDcLau6Yc8CpKMH-UdEOBbtz0Mac9/view?usp=sharing",
+    image: `images/certificates/11.jpg`,
+    text: "TOEIC",
+    link: "https://drive.google.com/drive/folders/1_s8Ys64LtQKw13AcqJGY4qNvV1QQAHL3?usp=drive_link",
   },
   {
-    image: `https://picsum.photos/seed/21/800/600?grayscale`,
-    text: "Coastline",
-    link: "https://drive.google.com/file/d/1AgswDcLau6Yc8CpKMH-UdEOBbtz0Mac9/view?usp=sharing",
-  },
-  {
-    image: `https://picsum.photos/seed/12/800/600?grayscale`,
-    text: "Palm Trees",
-    link: "https://drive.google.com/file/d/1AgswDcLau6Yc8CpKMH-UdEOBbtz0Mac9/view?usp=sharing",
+    image: `images/certificates/12.jpg`,
+    text: "Multimedia Competence",
+    link: "https://drive.google.com/drive/folders/1_s8Ys64LtQKw13AcqJGY4qNvV1QQAHL3?usp=drive_link",
   },
 ];
 
@@ -749,7 +749,7 @@ export default function CircularGallery({
   bend = 3,
   textColor = "#ffffff",
   borderRadius = 0.05,
-  font = "bold 30px Figtree",
+  font = "bold 30px Inter",
   scrollSpeed = 2,
   scrollEase = 0.05,
 }: CircularGalleryProps) {
@@ -783,7 +783,7 @@ export default function CircularGallery({
             href={item.link || "#"}
             target="_blank"
             rel="noopener noreferrer"
-            title={`Lihat sertifikat: ${item.text}`}
+            title={`View Certificates: ${item.text}`}
             className="w-[150px] h-[100px] pointer-events-auto"
             style={{ visibility: item.link ? "visible" : "hidden" }}
           />

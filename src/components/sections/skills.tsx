@@ -38,7 +38,7 @@ const Skills = () => {
       ref={skillsRef}
     >
       {/* Judul */}
-      <div className={`w-full text-center mb-5 pt-20 transition-opacity duration-1000 ${
+      <div className={`w-full text-center mb-5 pt-15 transition-opacity duration-1000 ${
         hasAnimated ? 'animate__animated animate__fadeInUp animate__delay-0_3s' : 'opacity-0'
       }`}>
         <h1 className="section-title font-bold text-4xl">

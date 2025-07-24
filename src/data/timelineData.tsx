@@ -3,50 +3,50 @@
 export const myExperiences = [
   {
     id: "graphic-designer-2022-2023",
-    title: "2022 – Early 2023",
+    title: "2022",
     content: (
       <div className="text-neutral-700 dark:text-neutral-300">
         <p className="text-4xl font-bold text-center text-gray-300 mb-2 gradient">Graphic Designer</p>
         <p className="text-gray-300 text-center md:text-lg ">
-          Merancang lebih dari 25 denah rumah dan berbagai desain grafis. Mengelola operasional kantor, pelayanan pelanggan, serta meningkatkan efisiensi administrasi.
+          Designed over 25 house layouts along with various graphic assets for print and digital media. Managed office operations, handled client services, and contributed to improving administrative efficiency.
         </p>
       </div>
     ),
     images: [
-      "/images/projects/p1.png",
-      "/images/projects/p1.png",
+      "/images/timeline/1.jpg",
+      "/images/timeline/2.jpg",
     ],
   },
   {
     id: "bnsp-certified-2023",
-    title: "Feb – May 2023",
+    title: "Early 2023",
     content: (
       <div className="text-neutral-700 dark:text-neutral-300">
         <p className="text-4xl font-bold text-center text-gray-300 mb-2 gradient">BNSP Certified & Outstanding Student - Multimedia</p>
         <p className="text-gray-300 text-center md:text-lg">
-          Meraih sertifikasi profesional BNSP dan penghargaan siswa terbaik nasional bidang multimedia dari Kemendikbudristek.
+          Received BNSP professional certification and graduated as the best multimedia student in vocational high school, recognized for academic and creative excellence.
         </p>
       </div>
     ),
     images: [
-      "/images/projects/p1.png",
-      "/images/projects/p1.png",
+      "/images/timeline/3.jpg",
+      "/images/timeline/4.jpg",
     ],
   },
   {
     id: "bachelor-data-science-2023",
-    title: "Aug 2023 – Present",
+    title: "2023 – Present",
     content: (
       <div className="text-neutral-700 dark:text-neutral-300">
         <p className="text-4xl font-bold text-center text-gray-300 mb-2 gradient">Bachelor&apos;s Degree in Data Science - ITERA</p>
         <p className="text-gray-300 text-center md:text-lg">
-          Menempuh pendidikan S1 Data Science di Institut Teknologi Sumatera. Aktif dalam berbagai organisasi, lomba nasional, serta pengembangan project dan riset.
+          Currently studying Data Science at Institut Teknologi Sumatera with active involvement in research, competitions, and tech community projects.
         </p>
       </div>
     ),
     images: [
-      "/images/projects/p1.png",
-      "/images/projects/p1.png",
+      "/images/timeline/5.jpg",
+      "/images/timeline/6.JPG",
     ],
   },
   {
@@ -56,13 +56,13 @@ export const myExperiences = [
       <div className="text-neutral-700 dark:text-neutral-300">
         <p className="text-4xl font-bold text-center text-gray-300 mb-2 gradient">Assistant Lecturer & Lab Assistant</p>
         <p className="text-gray-300 text-center md:text-lg">
-          Mendampingi pengajaran mata kuliah tingkat lanjut dan praktikum dasar. Bertanggung jawab atas rekap nilai, kehadiran, serta bimbingan teknis.
+          Supported both theoretical and practical classes by assisting lecturers, managing student records, and offering hands-on technical mentoring during lab sessions.
         </p>
       </div>
     ),
     images: [
-      "/images/projects/p1.png",
-      "/images/projects/p1.png",
+      "/images/timeline/7.jpg",
+      "/images/timeline/8.jpg",
     ],
   },
   {
@@ -72,13 +72,13 @@ export const myExperiences = [
       <div className="text-neutral-700 dark:text-neutral-300">
         <p className="text-4xl font-bold text-center text-gray-300 mb-2 gradient">AI Website Training & Spotify Research</p>
         <p className="text-gray-300 text-center md:text-lg">
-          Melatih siswa SMA membuat website dengan bantuan AI dan menulis artikel ilmiah tentang personalisasi pengguna Spotify—dipublikasikan di jurnal Sinta 2.
+          Facilitated AI-powered web development training for high school students and conducted research on Spotify user personalization, resulting in a publication in a nationally accredited (SINTA-2) journal.
         </p>
       </div>
     ),
     images: [
-      "/images/projects/p1.png",
-      "/images/projects/p1.png",
+      "/images/timeline/9.JPG",
+      "/images/timeline/10.JPG",
     ],
   },
   {
@@ -87,14 +87,13 @@ export const myExperiences = [
     content: (
       <div className="text-neutral-700 dark:text-neutral-300">
         <p className="text-4xl font-bold text-center text-gray-300 mb-2 gradient">Konsumerz Mentoring Program</p>
-        <p className="text-gray-300 text-center md:text-lg">
-          Membangun front-end web dengan Next.js, mendesain sistem branding, dan memfasilitasi pelatihan data untuk siswa SMK terpilih.
+        <p className="text-gray-300 text-center md:text-lg">Developed the front-end website using Next.js, designed the program&apos;s branding system, and facilitated data training sessions for selected vocational high school students.
         </p>
       </div>
     ),
     images: [
-      "/images/projects/p1.png",
-      "/images/projects/p1.png",
+      "/images/timeline/11.jpg",
+      "/images/timeline/12.jpg",
     ],
   },
 ];

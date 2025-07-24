@@ -22,7 +22,7 @@ export const Header = () => {
   // Efek untuk mendeteksi section aktif saat scroll
   useEffect(() => {
     const handleScrollDetection = () => {
-      const sections = ['about', 'skills', 'projects', 'experiences', 'certificates', 'contact']; // Daftar semua ID section kamu
+      const sections = ['about', 'skills', 'projects', 'experiences', 'certificates', 'publications','contact']; // Daftar semua ID section kamu
       const scrollPosition = window.scrollY + window.innerHeight / 2; // Posisi scroll di tengah viewport
 
       for (const sectionId of sections) {
@@ -52,7 +52,7 @@ export const Header = () => {
 
   return (
     <header
-      className="bg-white/3 backdrop-blur-lg text-white py-4 rounded-full max-w-[620px] mx-auto sticky top-6 z-999 ring-1 ring-white/10 transition-all"
+      className="bg-white/3 backdrop-blur-lg text-white py-4 rounded-full max-w-[720px] mx-auto sticky top-6 z-999 ring-1 ring-white/10 transition-all"
       data-aos="fade-down"
       data-aos-duration="2000"
     >
@@ -97,6 +97,14 @@ export const Header = () => {
               className={`${baseLinkClass} ${activeSection === 'certificates' ? 'text-white -translate-y-1 drop-shadow-md' : ''}`}
             >
               Certificates
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => handleScroll("publications")}
+              className={`${baseLinkClass} ${activeSection === 'publications' ? 'text-white -translate-y-1 drop-shadow-md' : ''}`}
+            >
+              Publications
             </button>
           </li>
           <li>

@@ -16,7 +16,7 @@ const fadeUp = (delay: number) => ({
 
 const Contact = () => {
   return (
-    <section className="w-[80%] min-h-screen flex flex-col items-center justify-start mx-auto pt-20 gap-10">
+    <section className="w-[80%] min-h-screen flex flex-col items-center justify-start mx-auto pt-15 gap-10">
       {/* Judul atas */}
       <motion.h1
         className="text-5xl font-bold gradient text-center leading-[1.25]"
@@ -65,7 +65,14 @@ const Contact = () => {
         </motion.div>
 
         {/* Photocard kanan */}
-        <div className="w-full md:w-[40%] h-auto rounded-xl flex justify-center items-center text-gray-500/50 text-sm italic">
+        {/* Photocard kanan dengan animasi */}
+        <motion.div
+          className="w-full md:w-[40%] h-auto rounded-xl flex justify-center items-center text-gray-500/50 text-sm italic"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp(0.4)} // Delay sedikit biar smooth nyusul elemen sebelumnya
+        >
           <ProfileCard
             name="Khairunnisa M"
             title="Data Scientist"
@@ -80,8 +87,9 @@ const Contact = () => {
             enableMobileTilt={false}
             onContactClick={() => window.location.href = "mailto:khrnnsmaharani@gmail.com"}
             className="scale-85"
-            />
-        </div>
+          />
+        </motion.div>
+
       </div>
     </section>
   );

@@ -46,9 +46,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           Changelog from my journey
         </h2>
         <p className="text-gray-300 text-lg">
-          I&apos;ve been working on Sumatera Institute of Technology for the past 2 years. Here&apos;s a timeline of my journey.
-          I&apos;ve been working on Sumatera Institute of Technology for the past 2 years. Here&apos;s a timeline of my journey.
-          I&apos;ve been working on Sumatera Institute of Technology for the past 2 years. Here&apos;s a timeline of my journey.
+          Starting from a passion for visual storytelling in vocational multimedia school to diving into data and machine learning at Institut Teknologi Sumatera, this timeline reflects how each step has shaped who I am today.
         </p>
       </div>
 
@@ -74,7 +72,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-black flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
               </div>
-              <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-gray-300">
+              <h3 className="hidden md:block text-xl md:pl-20 md:text-4xl font-bold text-gray-300">
                 {item.title}
               </h3>
             </div>
