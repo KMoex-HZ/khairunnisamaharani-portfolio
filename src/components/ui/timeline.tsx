@@ -55,7 +55,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         {data.map((item, index) => (
         <motion.div
           key={item.id}
-          className="flex justify-start pt-10 md:pt-40 md:gap-60 pr-10"
+          className="flex justify-start pt-10 md:pt-40 md:gap-5 lg:gap:5 xl:gap-60 pr-10"
           ref={index === 0 ? topRef : index === data.length - 1 ? bottomRef : undefined}
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -72,7 +72,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-black flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
               </div>
-              <h3 className="hidden md:block text-xl md:pl-20 md:text-4xl font-bold text-gray-300">
+              <h3 className="hidden md:block text-xl sm:text-10 md:pl-20 md:text-4xl font-bold text-gray-300">
                 {item.title}
               </h3>
             </div>
@@ -112,7 +112,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           style={{
             height: heightTransform,
             opacity: opacityTransform,
-            maskImage: 'linear-gradient(to bottom, black 0%, black 95%, transparent 100%)',
+            maskImage: 'linear-gradient(to bottom, black 0%, black 10%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 85%, transparent 100%)',
           }}
           className="absolute inset-x-0 top-0 w-[3px] bg-gradient-to-b from-[#00fff7] via-[#0070ff] to-transparent rounded-full"

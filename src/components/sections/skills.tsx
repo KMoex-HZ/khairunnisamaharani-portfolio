@@ -50,7 +50,7 @@ const Skills = () => {
       <div className={`text-content max-w-2xl mx-auto text-center z-10 mb-30 transition-opacity duration-1000 ${
         hasAnimated ? 'animate__animated animate__fadeInUp animate__delay-0_6s' : 'opacity-0'
       }`}>
-        <h1 className="gradient font-bold text-5xl mb-10 leading-[1.25]">
+        <h1 className="gradient font-bold text-4xl sm:text-5xl mb-10 leading-[1.25]">
           Data Science & Design <i className="bx bx-brain"></i>
         </h1>
         <p className="text-lg leading-relaxed">

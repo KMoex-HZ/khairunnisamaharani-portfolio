@@ -1,6 +1,7 @@
 // src/app/page.tsx
 'use client'; // Tambahin paling atas ya!
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 import { Header } from '@/components/header/header';
 import About from '@/components/sections/about';
@@ -20,6 +21,34 @@ import { PinContainer } from '@/components/ui/3d-pin';
 const MotionH2 = motion('h2');
 
 export default function Home() {
+  const [bendValue, setBendValue] = useState(3);
+
+  // Hook untuk mendeteksi ukuran layar dan mengatur bend value
+  useEffect(() => {
+    const updateBendValue = () => {
+      const width = window.innerWidth;
+      
+      if (width < 640) { // Mobile (sm)
+        setBendValue(1);
+      } else if (width < 768) { // Tablet kecil (md)
+        setBendValue(1);
+      } else if (width < 1024) { // Tablet besar (lg)
+        setBendValue(2.5);
+      } else { // Desktop
+        setBendValue(3);
+      }
+    };
+
+    // Set initial value
+    updateBendValue();
+
+    // Add event listener
+    window.addEventListener('resize', updateBendValue);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', updateBendValue);
+  }, []);
+
   return (
     <main className='relative min-h-screen'>
       <div className="absolute top-0 left-0 w-full h-[300px] z-0 overflow-hidden">
@@ -91,7 +120,7 @@ export default function Home() {
 
         <div className="w-full h-[500px] relative">
           <CircularGallery
-            bend={3}
+            bend={bendValue} // Menggunakan bendValue yang responsif
             textColor="#ffffff"
             borderRadius={0.05}
             scrollSpeed={1}
@@ -114,7 +143,6 @@ export default function Home() {
         <p className="text-lg text-gray-400 text-center mb-10 max-w-2xl mx-auto">
           Click to read more or download the full publication documents.
         </p>
-
 
         <div className='flex justify-center items-center py-10'>
           <PinContainer
