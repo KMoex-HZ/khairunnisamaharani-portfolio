@@ -39,7 +39,7 @@ const ProjectSection = () => {
       button: "GitHub",
       category: "Data",
       year: "2025",
-      status: "Selesai",
+      status: "Finished",
       team: "Team (5)",
       type: "Research",
       tech: ["R", "ROSE", "Random Forest", "Decision Tree"],
@@ -54,7 +54,7 @@ const ProjectSection = () => {
       button: "Streamlit",
       category: "Data",
       year: "2025",
-      status: "Selesai",
+      status: "Finished",
       team: "Solo",
       type: "Research",
       tech: ["Python", "Streamlit", "XGBoost", "Random Forest"],
@@ -69,7 +69,7 @@ const ProjectSection = () => {
       button: "GitHub",
       category: "Data",
       year: "2024",
-      status: "Selesai",
+      status: "Finished",
       team: "Solo",
       type: "Personal Project",
       tech: ["Python", "OpenCV", "MediaPipe"],
@@ -84,7 +84,7 @@ const ProjectSection = () => {
       button: "Demo",
       category: "Data",
       year: "2024",
-      status: "Selesai",
+      status: "Finished",
       team: "Solo",
       type: "Personal Project",
       tech: ["Python", "TensorFlow", "Keras", "Google Colab"],
@@ -99,7 +99,7 @@ const ProjectSection = () => {
       button: "GitHub",
       category: "Data",
       year: "2024",
-      status: "Selesai",
+      status: "Finished",
       team: "Solo",
       type: "Personal Project",
       tech: ["Python", "Flask", "scikit-learn", "AWS"],
@@ -166,8 +166,52 @@ const ProjectSection = () => {
     preview: "/ig-prodi", // internal route ke galeri desain IG prodi
     docs: "",
     tooltip: "Instagram visual branding and content design for Data Science program"
-  }
-
+  },
+  {
+  title: "SQL Data Analytics Project",
+  desc: "Learning version of SQL analytics course by DataWithBaraa. Focused on analyzing business questions using T-SQL with sample datasets, reverse-engineering professional queries, and building analytical intuition.",
+  img: "/images/projects/p9.jpg", // Ganti sesuai gambar lo
+  button: "GitHub",
+  category: "Data",
+  year: "2025",
+  status: "Ongoing",
+  team: "Solo",
+  type: "Personal Project",
+  tech: ["T-SQL", "SQL Server", "SSMS", "Analytics"],
+  preview: "https://github.com/KMoex-HZ/dataAnalytics",
+  docs: "https://github.com/KMoex-HZ/dataAnalytics", // ganti kalau beda
+  tooltip: "Reverse-engineered SQL analytics project from DataWithBaraa course"
+},
+{
+  title: "SQL Data Warehouse Project",
+  desc: "Learning adaptation of DataWithBaraa’s warehouse project. Explored Medallion architecture with layered SQL transformations (Bronze, Silver, Gold) and star schema modeling for business analytics.",
+  img: "/images/projects/p10.png", // Ganti sesuai nama file gambar lo
+  button: "GitHub",
+  category: "Data",
+  year: "2025",
+  status: "Ongoing",
+  team: "Solo",
+  type: "Personal Project",
+  tech: ["T-SQL", "SQL Server", "SSMS", "Draw.io", "ETL", "Star Schema"],
+  preview: "https://github.com/KMoex-HZ/dataWarehouse",
+  docs: "https://github.com/KMoex-HZ/dataWarehouse", // Ganti kalau beda
+  tooltip: "Learning project on SQL warehouse architecture with Medallion model"
+},
+{
+  title: "Tableau BI Dashboards",
+  desc: "Practice dashboards from Tableau Ultimate Course by DataWithBaraa. Rebuilt HR, Sales, and Customer Insight dashboards to learn KPI tracking, interactivity, and storytelling with data.",
+  img: "/images/projects/p11.png", // Ganti kalau udah punya gambar dashboard
+  button: "GitHub",
+  category: "Data",
+  year: "2025",
+  status: "Ongoing",
+  team: "Solo",
+  type: "Personal Project",
+  tech: ["Tableau", "Excel", "CSV", "Python", "SQL", "Data Visualization"],
+  preview: "https://public.tableau.com/app/profile/baraa.salkini/viz/SalesCustomerDashboardsDynamic/SalesDashboard", // bisa ditambah link Tableau Public kalau ada
+  docs: "https://github.com/KMoex-HZ/tableauProject", // Ganti kalau beda
+  tooltip: "Business Intelligence dashboards rebuilt from Tableau Ultimate Course"
+}
   ];
 
   const categories = ["Data", "Website", "Design"];
@@ -206,12 +250,21 @@ const ProjectSection = () => {
     "Visual Communication": "bg-pink-400",
     "Graphic Design": "bg-blue-500",
     "Branding": "bg-amber-500",
-    "Social Media Design": "bg-rose-400"
-
+    "Social Media Design": "bg-rose-400",
+    "T-SQL": "bg-purple-600",
+    "SQL Server": "bg-blue-800",
+    "SSMS": "bg-gray-500",
+    "Analytics": "bg-sky-600",
+    "Draw.io": "bg-pink-400",
+    "ETL": "bg-emerald-500",
+    "Star Schema": "bg-indigo-600",
+    "Tableau": "bg-indigo-500",
+    "CSV": "bg-gray-400",
+    "Data Visualization": "bg-cyan-600"
   };
 
   const statusColors: { [key: string]: string } = {
-    "Selesai": "bg-green-500",
+    "Finished": "bg-green-500",
     "Ongoing": "bg-yellow-500",
     "Prototype": "bg-blue-500"
   };
