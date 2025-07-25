@@ -182,7 +182,7 @@ const ProjectSection = () => {
     },
     {
       title: "Interactive Portfolio Website",
-      desc: "Developing a fully customized portfolio website from scratch using Next.js, Tailwind, and ReactBits with Aceternity UI components. Built and deployed within a few days to showcase design, frontend, and AI-assisted development capabilities. Hosted on Vercel with continuous deployment from GitHub.",
+      desc: "Developing a fully customized portfolio website from scratch using Next.js, Tailwind, Typescript and ReactBits with Aceternity UI components. Built and deployed within a few days to showcase design, frontend, and AI-assisted development capabilities. Hosted on Vercel with continuous deployment from GitHub.",
       img: "/images/projects/p6.png",
       button: "Website",
       category: "Website",
@@ -190,7 +190,7 @@ const ProjectSection = () => {
       status: "Ongoing",
       team: "Solo",
       type: "Personal Project",
-      tech: ["Next.js", "Tailwind", "HTML", "CSS", "JavaScript", "ReactBits", "Aceternity UI", "GitHub", "Vercel", "AI"],
+      tech: ["Next.js", "Tailwind", "HTML", "CSS", "JavaScript", "ReactBits", "Aceternity UI", "GitHub", "Vercel", "AI", "Typescript"],
       preview: "https://khairunnisa.konsumerz.com",
       docs: "https://github.com/KMoex-HZ/khairunnisa-maharani-portfolio",
       tooltip: "Modern personal portfolio built with Next.js, Tailwind, and Aceternity UI"
@@ -273,7 +273,8 @@ const ProjectSection = () => {
     "Star Schema": "bg-indigo-600",
     "Tableau": "bg-indigo-500",
     "CSV": "bg-gray-400",
-    "Data Visualization": "bg-cyan-600"
+    "Data Visualization": "bg-cyan-600",
+    "Typescript": "bg-purple-700"
   };
 
   const statusColors: { [key: string]: string } = {

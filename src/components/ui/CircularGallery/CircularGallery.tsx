@@ -771,10 +771,10 @@ export default function CircularGallery({
   }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
   return (
     <div className="relative w-full h-full overflow-hidden cursor-grab active:cursor-grabbing">
-  <div
-    className="absolute inset-0"
-    ref={containerRef}
-  />
+    <div
+      className="absolute inset-0"
+      ref={containerRef}
+    />
     <div className="absolute inset-0 pointer-events-none">
       <div className="flex justify-center items-center h-full gap-6">
         {items.map((item, index) => (

@@ -124,9 +124,10 @@ export default function Home() {
             textColor="#ffffff"
             borderRadius={0.05}
             scrollSpeed={1}
-            scrollEase={0.05}
+            scrollEase={0.1}
           />
         </div>
+        <p className='text-xl text-gray-100 text-center mt-6 max-w-2xl mx-auto'>&lt;&lt;&lt; Swipe to Left</p>
       </section>
 
       {/* Bagian My Publications (tetap di sini, di bawah Certificates) */}
