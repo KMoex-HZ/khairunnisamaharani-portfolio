@@ -79,7 +79,7 @@ export const Header = () => {
 
   return (
     <header
-      className="bg-white/3 backdrop-blur-lg text-white py-4 rounded-full max-w-[720px] mx-auto sticky top-6 z-50 ring-1 ring-white/10 transition-all"
+      className="bg-white/3 backdrop-blur-lg text-white py-4 rounded-full max-w-[720px] mx-auto sticky top-6 z-999 ring-1 ring-white/10 transition-all"
       data-aos="fade-down"
       data-aos-duration="2000"
     >

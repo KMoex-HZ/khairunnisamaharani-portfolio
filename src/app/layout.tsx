@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Khairunnisa Maharani-Portfolio",
+  title: "Khairunnisa-Portfolio",
   description: "Portofolio personal Khairunnisa Maharani, mahasiswa Sains Data.",
 };
 

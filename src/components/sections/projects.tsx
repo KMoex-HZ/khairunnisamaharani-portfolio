@@ -308,7 +308,7 @@ const ProjectSection = () => {
       "Logistic Regression": "bg-green-600",
   "SMOTE": "bg-pink-500",
     "Linear Regression": "bg-emerald-500",
-    "Pandas": "bg-yellow-600",
+    "Pandas": "bg-pink-600",
     "Matplotlib": "bg-orange-400",
     "Seaborn": "bg-cyan-400",
     "Statsmodels": "bg-indigo-500",
