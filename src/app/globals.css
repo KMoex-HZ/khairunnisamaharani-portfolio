@@ -161,7 +161,7 @@ body {
 .slider {
   --width: 100px; /* Lebar setiap item */
   --height: 100px; /* Tinggi setiap item */
-  --quantity: 17; /* Ini sudah benar, jumlah total item di slider Abang */
+  --quantity: 19; /* Ini sudah benar, jumlah total item di slider Abang */
 
   position: absolute; /* Jaga agar tetap di posisi yang Abang inginkan */
   bottom: 5%;

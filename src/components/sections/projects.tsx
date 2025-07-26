@@ -46,6 +46,80 @@ const ProjectSection = () => {
 
   const projects = [
     {
+  title: "Mall Customer Segmentation – BDC",
+  desc: "Segmentation analysis using K-Means on mall customer dataset. Identified five distinct customer groups based on age, income, and spending patterns. Visualized clusters for actionable marketing insights.",
+  img: "/images/projects/p13.png", // pastikan lo sediain gambarnya nanti
+  button: "GitHub",
+  category: "Data",
+  year: "2025",
+  status: "Finished",
+  team: "Solo",
+  type: "Competition",
+  tech: [
+    "Python", "Pandas", "NumPy", "scikit-learn", 
+    "Matplotlib", "Seaborn", "Jupyter Notebook", "KMeans"
+  ],
+  preview: "https://github.com/KMoex-HZ/MallCustomerSegmentation-BDC",
+  docs: "https://github.com/KMoex-HZ/MallCustomerSegmentation-BDC",
+  tooltip: "Customer segmentation using K-Means clustering and visual analysis"
+},
+    {
+  title: "Time Series Forecasting – BDC",
+  desc: "Big Data Challenge project analyzing time series sales data using SARIMAX and Prophet. Compared model performance to determine best forecasting method for daily sales.",
+  img: "/images/projects/p12.png", // pastikan ini kamu sediakan nanti
+  button: "GitHub",
+  category: "Data",
+  year: "2025",
+  status: "Finished",
+  team: "Solo",
+  type: "Competition",
+  tech: [
+    "Python", "Pandas", "Matplotlib", "Seaborn", "Statsmodels", 
+    "Prophet", "NumPy", "scikit-learn", "Jupyter Notebook"
+  ],
+  preview: "https://github.com/KMoex-HZ/TimeSeriesForecasting-BDC",
+  docs: "https://github.com/KMoex-HZ/TimeSeriesForecasting-BDC",
+  tooltip: "Time series forecasting challenge using SARIMAX and Prophet models"
+},
+    {
+  title: "Boston Housing Regression – BDC",
+  desc: "Predicted house prices using Boston Housing dataset. Compared Linear Regression and Random Forest models. Analyzed key features affecting prices like crime rate, income, and room numbers.",
+  img: "/images/projects/p14.png", // siapkan gambar thumbnail ya
+  button: "GitHub",
+  category: "Data",
+  year: "2025",
+  status: "Finished",
+  team: "Solo",
+  type: "Competition",
+  tech: [
+    "Python", "Pandas", "NumPy", "scikit-learn", 
+    "Matplotlib", "Seaborn", "Jupyter Notebook", 
+    "Random Forest", "Linear Regression"
+  ],
+  preview: "https://github.com/KMoex-HZ/RegressionBostonHousing-BDC",
+  docs: "https://github.com/KMoex-HZ/RegressionBostonHousing-BDC",
+  tooltip: "Regression analysis on Boston housing data using Linear and Random Forest models"
+},
+ {
+  title: "Adult Income Classification – BDC",
+  desc: "Binary classification to predict if a person's income exceeds $50K/year based on US census data. Compared Logistic Regression and Random Forest with SMOTE balancing and ROC-AUC evaluation.",
+  img: "/images/projects/p15.png", // siapkan file thumbnail-nya
+  button: "GitHub",
+  category: "Data",
+  year: "2025",
+  status: "Finished",
+  team: "Solo",
+  type: "Competition",
+  tech: [
+    "Python", "Pandas", "NumPy", "scikit-learn", 
+    "Matplotlib", "Seaborn", "Jupyter Notebook", 
+    "Random Forest", "Logistic Regression", "SMOTE"
+  ],
+  preview: "https://github.com/KMoex-HZ/GeneralBinaryClassification-BDC",
+  docs: "https://github.com/KMoex-HZ/GeneralBinaryClassification-BDC",
+  tooltip: "Income classification using census data with Logistic Regression and Random Forest"
+},
+    {
       title: "SQL Data Warehouse Project",
       desc: "Learning adaptation of DataWithBaraa's warehouse project. Explored Medallion architecture with layered SQL transformations (Bronze, Silver, Gold) and star schema modeling for business analytics.",
       img: "/images/projects/p10.png",
@@ -99,7 +173,7 @@ const ProjectSection = () => {
       year: "2025",
       status: "Finished",
       team: "Solo",
-      type: "Research",
+      type: "Competition",
       tech: ["Python", "Streamlit", "XGBoost", "Random Forest"],
       preview: "https://projek-prediksi-banjir.streamlit.app/",
       docs: "https://github.com/KMoex-HZ/Prediksi-Banjir",
@@ -231,6 +305,16 @@ const ProjectSection = () => {
   const filteredProjects = projects.filter(p => p.category === selectedCategory);
 
   const techColors: { [key: string]: string } = {
+      "Logistic Regression": "bg-green-600",
+  "SMOTE": "bg-pink-500",
+    "Linear Regression": "bg-emerald-500",
+    "Pandas": "bg-yellow-600",
+    "Matplotlib": "bg-orange-400",
+    "Seaborn": "bg-cyan-400",
+    "Statsmodels": "bg-indigo-500",
+    "Prophet": "bg-teal-500",
+    "NumPy": "bg-blue-400",
+    "Jupyter Notebook": "bg-orange-300",
     "R": "bg-blue-500",
     "scikit-learn": "bg-black",
     "Python": "bg-green-500",
@@ -274,7 +358,8 @@ const ProjectSection = () => {
     "Tableau": "bg-indigo-500",
     "CSV": "bg-gray-400",
     "Data Visualization": "bg-cyan-600",
-    "Typescript": "bg-purple-700"
+    "Typescript": "bg-purple-700",
+    "KMeans": "bg-lime-500", // atau warna lain yang menurut lo cocok
   };
 
   const statusColors: { [key: string]: string } = {

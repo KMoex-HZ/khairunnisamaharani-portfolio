@@ -68,7 +68,7 @@ const Skills = () => {
         <div className="slider overflow-hidden w-full">
           {/* Perhatikan penambahan 'relative' pada elemen 'item' */}
           <div className="list flex animate-slider-loop">
-            {[...Array(17).fill(null).map((_, i) => (
+            {[...Array(19).fill(null).map((_, i) => (
               <div className="item min-w-[120px] p-2 relative" key={`original-${i}`}> 
                 <Image
                   src={`/images/skills/${i + 1}.png`} 
@@ -79,7 +79,7 @@ const Skills = () => {
                 />
               </div>
             )),
-            ...Array(17).fill(null).map((_, i) => (
+            ...Array(19).fill(null).map((_, i) => (
               <div className="item min-w-[120px] p-2 relative" key={`duplicate-${i}`}>
                 <Image
                   src={`/images/skills/${i + 1}.png`} 
