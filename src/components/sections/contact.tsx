@@ -42,11 +42,11 @@ const Contact = () => {
             Feel free to reach out to me through any of the platforms below. I&apos;m always open to opportunities, collaboration, or simply a chat.
           </p>
 
-          <a href="https://linkedin.com/in/yourlinkedin" className="flex items-center">
+          <a href="https://www.linkedin.com/in/khnrni/" className="flex items-center">
             <BsLinkedin className="text-[#7668ff] text-2xl mr-3" />
             khnrni
           </a>
-          <a href="https://instagram.com/yourusername" className="flex items-center">
+          <a href="https://www.instagram.com/khrnsmhrni/" className="flex items-center">
             <BsInstagram className="text-[#7668ff] text-2xl mr-3" />
             @khrnsmhrni
           </a>
