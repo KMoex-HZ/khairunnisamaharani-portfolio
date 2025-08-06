@@ -17,8 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* Background video */}
-        <video
+        {/* <video
           autoPlay
           loop
           muted
@@ -26,7 +25,7 @@ export default function RootLayout({
           className="fixed top-0 left-0 w-full h-full object-cover -z-10"
         >
           <source src="/videos/galaxy.mp4" type="video/mp4" />
-        </video>
+        </video> */}
 
         {/* Konten utama */}
         {children}

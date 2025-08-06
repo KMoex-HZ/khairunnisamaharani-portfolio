@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 
 export const Header = () => {
-  const baseLinkClass = "inline-block text-gray-400 hover:text-white hover:-translate-y-1 hover:drop-shadow-md transition-all duration-200 ease-in-out";
+  const baseLinkClass = "inline-block text-gray-600 hover:text-blue-600 hover:-translate-y-1 hover:drop-shadow-md transition-all duration-200 ease-in-out font-medium";
   const [activeSection, setActiveSection] = useState<string>('');
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
@@ -24,7 +24,7 @@ export const Header = () => {
   // Efek untuk mendeteksi section aktif saat scroll
   useEffect(() => {
     const handleScrollDetection = () => {
-      const sections = ['about', 'skills', 'projects', 'experiences', 'certificates', 'publications','contact'];
+      const sections = ['about', 'skills', 'projects', 'awards', 'experiences', 'certificates', 'publications','contact'];
       const scrollPosition = window.scrollY + window.innerHeight / 2;
 
       for (const sectionId of sections) {
@@ -71,6 +71,7 @@ export const Header = () => {
     { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
     { id: 'projects', label: 'Projects' },
+    { id: 'awards', label: 'Awards' },
     { id: 'experiences', label: 'Experiences' },
     { id: 'certificates', label: 'Certificates' },
     { id: 'publications', label: 'Publications' },
@@ -79,7 +80,7 @@ export const Header = () => {
 
   return (
     <header
-      className="bg-white/3 backdrop-blur-lg text-white py-4 rounded-full max-w-[720px] mx-auto sticky top-6 z-999 ring-1 ring-white/10 transition-all"
+      className="bg-white/80 backdrop-blur-lg border border-gray-200/50 text-gray-700 py-4 rounded-full max-w-[820px] mx-auto sticky top-6 z-50 shadow-lg transition-all"
       data-aos="fade-down"
       data-aos-duration="2000"
     >
@@ -91,7 +92,11 @@ export const Header = () => {
               <li key={item.id}>
                 <button
                   onClick={() => handleScroll(item.id)}
-                  className={`${baseLinkClass} ${activeSection === item.id ? 'text-white -translate-y-1 drop-shadow-md' : ''}`}
+                  className={`${baseLinkClass} ${
+                    activeSection === item.id 
+                      ? 'text-blue-600 -translate-y-1 drop-shadow-md bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent font-semibold' 
+                      : ''
+                  }`}
                 >
                   {item.label}
                 </button>
@@ -103,15 +108,15 @@ export const Header = () => {
         {/* Mobile Navigation */}
         <div className="md:hidden relative">
           <div className="flex justify-between items-center">
-            {/* Logo atau Brand (opsional) */}
-            <div className="text-white font-semibold">
+            {/* Logo atau Brand */}
+            <div className="text-gray-700 font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Portfolio
             </div>
             
             {/* Burger Button */}
             <button
               onClick={toggleMenu}
-              className="text-white hover:text-gray-300 transition-colors duration-200 p-2"
+              className="text-gray-600 hover:text-blue-600 transition-colors duration-200 p-2"
               aria-label="Toggle menu"
             >
               <div className="w-6 h-6 flex flex-col justify-center items-center">
@@ -124,14 +129,14 @@ export const Header = () => {
 
           {/* Mobile Menu Dropdown */}
           {isMenuOpen && (
-            <div className="absolute top-full left-0 right-0 mt-2 bg-black backdrop-blur-lg rounded-2xl ring-1 ring-white/10 overflow-hidden">
+            <div className="absolute top-full left-0 right-0 mt-2 bg-white/90 backdrop-blur-lg rounded-2xl border border-gray-200/50 shadow-xl overflow-hidden">
               <ul className="py-2">
                 {navigationItems.map((item, index) => (
                   <li key={item.id}>
                     <button
                       onClick={() => handleScroll(item.id)}
-                      className={`w-full text-left px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 transition-all duration-200 ${
-                        activeSection === item.id ? 'text-white bg-white/5' : ''
+                      className={`w-full text-left px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50/50 transition-all duration-200 font-medium ${
+                        activeSection === item.id ? 'text-blue-600 bg-blue-50/50 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold' : ''
                       }`}
                       style={{
                         animationDelay: `${index * 50}ms`
