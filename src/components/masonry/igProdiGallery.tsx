@@ -1,9 +1,9 @@
 // src/components/Masonry/IgProdiGallery.tsx
-'use client'; // Penting, karena komponen Masonry interaktif
+"use client"; // Penting, karena komponen Masonry interaktif
 
-import React from 'react';
-import MasonryProdi from '@/components/ui/Masonry/MasonryProdi'; // <-- Kita ubah import ke MasonryProdi.tsx
-import { igProdiItems } from '@/data/ig-prodiData'; // <-- Import data IG Prodi di sini
+import React from "react";
+import MasonryProdi from "@/components/ui/Masonry/MasonryProdi"; // <-- Kita ubah import ke MasonryProdi.tsx
+import { igProdiItems } from "@/data/ig-prodiData"; // <-- Import data IG Prodi di sini
 
 export const IgProdiGallery = () => {
   return (

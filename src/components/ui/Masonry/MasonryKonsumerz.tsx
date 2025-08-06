@@ -12,27 +12,32 @@ import { gsap } from "gsap";
 const useMedia = (
   queries: string[],
   values: number[],
-  defaultValue: number,
+  defaultValue: number
 ): number => {
   const [value, setValue] = useState<number>(defaultValue);
 
   useEffect(() => {
     const get = () => {
-      if (typeof window !== 'undefined') {
-        return values[queries.findIndex((q) => window.matchMedia(q).matches)] ?? defaultValue;
+      if (typeof window !== "undefined") {
+        return (
+          values[queries.findIndex((q) => window.matchMedia(q).matches)] ??
+          defaultValue
+        );
       }
       return defaultValue;
     };
 
     const handler = () => setValue(get);
-    
+
     setValue(get());
 
-    if (typeof window !== 'undefined') {
-      queries.forEach((q) => window.matchMedia(q).addEventListener("change", handler));
+    if (typeof window !== "undefined") {
+      queries.forEach((q) =>
+        window.matchMedia(q).addEventListener("change", handler)
+      );
       return () =>
         queries.forEach((q) =>
-          window.matchMedia(q).removeEventListener("change", handler),
+          window.matchMedia(q).removeEventListener("change", handler)
         );
     }
   }, [queries, values, defaultValue]);
@@ -65,8 +70,8 @@ const preloadImages = async (urls: string[]): Promise<void> => {
           const img = new Image();
           img.src = src;
           img.onload = img.onerror = () => resolve();
-        }),
-    ),
+        })
+    )
   );
 };
 
@@ -77,7 +82,8 @@ interface Item {
   height: number; // Properti height di sini tidak akan menentukan tinggi akhir lagi
 }
 
-interface MasonryKonsumerzProps { // Nama interface juga kita ubah
+interface MasonryKonsumerzProps {
+  // Nama interface juga kita ubah
   items: Item[];
   ease?: string;
   duration?: number;
@@ -89,7 +95,8 @@ interface MasonryKonsumerzProps { // Nama interface juga kita ubah
   colorShiftOnHover?: boolean;
 }
 
-const MasonryKonsumerz: React.FC<MasonryKonsumerzProps> = ({ // Nama komponen kita ubah
+const MasonryKonsumerz: React.FC<MasonryKonsumerzProps> = ({
+  // Nama komponen kita ubah
   items,
   ease = "power3.out",
   duration = 0.6,
@@ -108,7 +115,7 @@ const MasonryKonsumerz: React.FC<MasonryKonsumerzProps> = ({ // Nama komponen ki
       "(min-width:400px)",
     ],
     [5, 4, 3, 2],
-    1,
+    1
   );
 
   const [containerRef, { width }] = useMeasure<HTMLDivElement>();
@@ -126,7 +133,7 @@ const MasonryKonsumerz: React.FC<MasonryKonsumerzProps> = ({ // Nama komponen ki
       ] as typeof animateFrom;
     }
 
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       switch (direction) {
         case "top":
           return { x: item.x, y: -200 };
@@ -149,7 +156,7 @@ const MasonryKonsumerz: React.FC<MasonryKonsumerzProps> = ({ // Nama komponen ki
   };
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       preloadImages(items.map((i) => i.img)).then(() => setImagesReady(true));
     } else {
       setImagesReady(true);
@@ -166,10 +173,10 @@ const MasonryKonsumerz: React.FC<MasonryKonsumerzProps> = ({ // Nama komponen ki
     return items.map((child) => {
       const col = colHeights.indexOf(Math.min(...colHeights));
       const x = col * (columnWidth + gap);
-      
+
       // BARIS INI KITA UBAH AGAR LANGSUNG RASIO 1:1
       const height = columnWidth * (1 / 1); // atau cukup 'columnWidth'
-      
+
       const y = colHeights[col];
 
       colHeights[col] += height + gap;
@@ -205,7 +212,7 @@ const MasonryKonsumerz: React.FC<MasonryKonsumerzProps> = ({ // Nama komponen ki
             duration: 0.8,
             ease: "power3.out",
             delay: index * stagger,
-          },
+          }
         );
       } else {
         gsap.to(selector, {

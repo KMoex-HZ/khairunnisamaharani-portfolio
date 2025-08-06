@@ -1,7 +1,19 @@
-'use client';
-import React, { useState, useEffect, useRef } from 'react';
-import { Award, Trophy, GraduationCap, Star, Download, Eye, User, Code, Database } from 'lucide-react';
-import 'animate.css';
+// src/components/sections/about.tsx
+
+"use client";
+import React, { useState, useEffect, useRef } from "react";
+import {
+  Award,
+  Trophy,
+  GraduationCap,
+  Star,
+  Download,
+  Eye,
+  User,
+  Code,
+  Database,
+} from "lucide-react";
+import "animate.css";
 
 const About = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -32,23 +44,34 @@ const About = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-6">
+          {/* Tambahkan animasi di sini */}
+          <div
+            className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-6 transition-opacity duration-1000 ${
+              hasAnimated
+                ? "animate__animated animate__fadeInUp" // Animasi untuk ikon
+                : "opacity-0"
+            }`}
+          >
             <User className="w-8 h-8 text-white" />
           </div>
           <h1
             className={`text-4xl md:text-5xl font-bold text-gray-900 mb-4 transition-opacity duration-1000 ease-in-out ${
               hasAnimated
-                ? 'animate__animated animate__fadeInUp animate__delay-0_3s'
-                : 'opacity-0'
+                ? "animate__animated animate__fadeInUp animate__delay-0_3s"
+                : "opacity-0"
             }`}
           >
-            Hi, I&apos;m <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Khairunnisa</span> Maharani
+            Hi, I&apos;m{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Khairunnisa
+            </span>{" "}
+            Maharani
           </h1>
           <h2
             className={`text-xl md:text-2xl text-gray-600 mb-6 transition-opacity duration-1000 ${
               hasAnimated
-                ? 'animate__animated animate__fadeInUp animate__delay-0_6s'
-                : 'opacity-0'
+                ? "animate__animated animate__fadeInUp animate__delay-0_6s"
+                : "opacity-0"
             }`}
           >
             Data Science Student & Technology Enthusiast
@@ -59,14 +82,16 @@ const About = () => {
         <div
           className={`bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden mb-16 transition-opacity duration-1000 ${
             hasAnimated
-              ? 'animate__animated animate__fadeInUp animate__delay-0_9s'
-              : 'opacity-0'
+              ? "animate__animated animate__fadeInUp animate__delay-0_9s"
+              : "opacity-0"
           }`}
         >
           <div className="p-8 md:p-12">
             <p className="text-lg text-gray-600 leading-relaxed mb-8 text-center max-w-4xl mx-auto">
-              I&apos;m passionate about data science, artificial intelligence, and building impactful digital solutions. 
-              My journey combines academic excellence with practical experience in technology and environmental sustainability.
+              I&apos;m passionate about data science, artificial intelligence,
+              and building impactful digital solutions. My journey combines
+              academic excellence with practical experience in technology and
+              environmental sustainability.
             </p>
 
             {/* Action Buttons */}
@@ -96,12 +121,11 @@ const About = () => {
                 <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-blue-500 opacity-20 rotate-12 group-hover:-translate-x-40 ease"></span>
                 <span className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
                 <span className="relative z-10 flex items-center space-x-2">
-  <Eye className="w-5 h-5 text-gray-700 group-hover:text-blue-600 transition-colors duration-300" />
-  <span className="group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-    View Projects
-  </span>
-</span>
-
+                  <Eye className="w-5 h-5 text-gray-700 group-hover:text-blue-600 transition-colors duration-300" />
+                  <span className="group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                    View Projects
+                  </span>
+                </span>
               </button>
             </div>
 
@@ -121,37 +145,44 @@ const About = () => {
         <div
           className={`grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 transition-opacity duration-1000 ${
             hasAnimated
-              ? 'animate__animated animate__fadeInUp animate__delay-1_2s'
-              : 'opacity-0'
+              ? "animate__animated animate__fadeInUp animate__delay-1_2s"
+              : "opacity-0"
           }`}
         >
           {[
             {
               icon: <Database className="w-8 h-8" />,
               title: "Data Science",
-              description: "Analyzing complex datasets to extract meaningful insights and drive decision-making",
-              gradient: "from-blue-400 to-cyan-500"
+              description:
+                "Analyzing complex datasets to extract meaningful insights and drive decision-making",
+              gradient: "from-blue-400 to-cyan-500",
             },
             {
               icon: <Code className="w-8 h-8" />,
               title: "AI & Technology",
-              description: "Building intelligent solutions and exploring cutting-edge technologies",
-              gradient: "from-purple-400 to-pink-500"
+              description:
+                "Building intelligent solutions and exploring cutting-edge technologies",
+              gradient: "from-purple-400 to-pink-500",
             },
             {
               icon: <GraduationCap className="w-8 h-8" />,
               title: "Sustainability",
-              description: "Combining technology with environmental consciousness for positive impact",
-              gradient: "from-green-400 to-emerald-500"
-            }
+              description:
+                "Combining technology with environmental consciousness for positive impact",
+              gradient: "from-green-400 to-emerald-500",
+            },
           ].map((item, index) => (
             <div
               key={index}
               className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 relative"
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+              />
               <div className="relative p-6">
-                <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r ${item.gradient} rounded-xl text-white shadow-lg mb-4`}>
+                <div
+                  className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r ${item.gradient} rounded-xl text-white shadow-lg mb-4`}
+                >
                   {item.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
@@ -162,12 +193,13 @@ const About = () => {
                 </p>
               </div>
               {/* Fixed bottom border - now properly positioned for each card */}
-              <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${item.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`} />
+              <div
+                className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${item.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}
+              />
             </div>
           ))}
         </div>
       </div>
-        
     </section>
   );
 };

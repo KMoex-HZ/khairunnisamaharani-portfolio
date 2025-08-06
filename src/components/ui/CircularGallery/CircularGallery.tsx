@@ -13,7 +13,10 @@ import { useEffect, useRef } from "react";
 
 type GL = Renderer["gl"];
 
-function debounce<T extends (...args: any[]) => void>(func: T, wait: number): (...args: Parameters<T>) => void {
+function debounce<T extends (...args: any[]) => void>(
+  func: T,
+  wait: number
+): (...args: Parameters<T>) => void {
   let timeout: ReturnType<typeof setTimeout> | undefined;
   return function (this: ThisParameterType<T>, ...args: Parameters<T>) {
     if (timeout) {
@@ -24,7 +27,7 @@ function debounce<T extends (...args: any[]) => void>(func: T, wait: number): (.
 }
 
 // KEMBALI KE DEFINISI autoBind INI (DENGAN 'any' UNTUK INSTANCE)
-function autoBind(instance: any): void { 
+function autoBind(instance: any): void {
   const proto = Object.getPrototypeOf(instance);
   Object.getOwnPropertyNames(proto).forEach((key) => {
     if (key !== "constructor" && typeof instance[key] === "function") {
@@ -42,7 +45,7 @@ function createTextTexture(
   gl: GL,
   text: string,
   font: string = "bold 30px monospace",
-  color: string = "black",
+  color: string = "black"
 ): { texture: Texture; width: number; height: number } {
   const canvas = document.createElement("canvas");
   const context = canvas.getContext("2d");
@@ -110,7 +113,7 @@ class Title {
       this.gl,
       this.text,
       this.font,
-      this.textColor,
+      this.textColor
     );
     const geometry = new Plane(this.gl);
     const program = new Program(this.gl, {
@@ -337,7 +340,7 @@ class Media {
 
   update(
     scroll: { current: number; last: number },
-    direction: "right" | "left",
+    direction: "right" | "left"
   ) {
     this.plane.position.x = this.x - scroll.current - this.extra;
 
@@ -474,7 +477,6 @@ const DEFAULT_GALLERY_ITEMS = [
   },
 ];
 
-
 interface AppConfig {
   items?: { image: string; text: string; link?: string }[];
   bend?: number;
@@ -531,7 +533,7 @@ class App {
       font = "bold 30px Figtree",
       scrollSpeed = 2,
       scrollEase = 0.05,
-    }: AppConfig,
+    }: AppConfig
   ) {
     document.documentElement.classList.remove("no-js");
     this.container = container;
@@ -577,7 +579,7 @@ class App {
     bend: number = 1,
     textColor: string,
     borderRadius: number,
-    font: string,
+    font: string
   ) {
     const galleryItems = items;
     this.mediasImages = galleryItems.concat(galleryItems);
@@ -623,7 +625,7 @@ class App {
     const delta =
       e.deltaY ||
       (e as any).wheelDelta || // Tetap ada 'as any' di sini
-      (e as any).detail;      // Tetap ada 'as any' di sini
+      (e as any).detail; // Tetap ada 'as any' di sini
     this.scroll.target += delta > 0 ? this.scrollSpeed : -this.scrollSpeed;
     this.onCheckDebounce();
   }
@@ -651,7 +653,7 @@ class App {
     this.viewport = { width, height };
     if (this.medias) {
       this.medias.forEach((media) =>
-        media.onResize({ screen: this.screen, viewport: this.viewport }),
+        media.onResize({ screen: this.screen, viewport: this.viewport })
       );
     }
   }
@@ -660,7 +662,7 @@ class App {
     this.scroll.current = App.lerp(
       this.scroll.current,
       this.scroll.target,
-      this.scroll.ease,
+      this.scroll.ease
     );
     const direction = this.scroll.current > this.scroll.last ? "right" : "left";
     if (this.medias) {
@@ -700,7 +702,6 @@ class App {
     this.container.addEventListener("touchstart", this.boundOnTouchDown);
     this.container.addEventListener("touchmove", this.boundOnTouchMove);
     this.container.addEventListener("touchend", this.boundOnTouchUp);
-
   }
 
   destroy() {
@@ -721,14 +722,14 @@ class App {
     this.container.removeEventListener("touchstart", this.boundOnTouchDown);
     this.container.removeEventListener("touchmove", this.boundOnTouchMove);
     this.container.removeEventListener("touchend", this.boundOnTouchUp);
-    
+
     if (
       this.renderer &&
       this.renderer.gl &&
       this.renderer.gl.canvas.parentNode
     ) {
       this.renderer.gl.canvas.parentNode.removeChild(
-        this.renderer.gl.canvas as HTMLCanvasElement,
+        this.renderer.gl.canvas as HTMLCanvasElement
       );
     }
   }
@@ -771,26 +772,22 @@ export default function CircularGallery({
   }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
   return (
     <div className="relative w-full h-full overflow-hidden cursor-grab active:cursor-grabbing">
-    <div
-      className="absolute inset-0"
-      ref={containerRef}
-    />
-    <div className="absolute inset-0 pointer-events-none">
-      <div className="flex justify-center items-center h-full gap-6">
-        {items.map((item, index) => (
-          <a
-            key={index}
-            href={item.link || "#"}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={`View Certificates: ${item.text}`}
-            className="w-[150px] h-[100px] pointer-events-auto"
-            style={{ visibility: item.link ? "visible" : "hidden" }}
-          />
-        ))}
-
+      <div className="absolute inset-0" ref={containerRef} />
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="flex justify-center items-center h-full gap-6">
+          {items.map((item, index) => (
+            <a
+              key={index}
+              href={item.link || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={`View Certificates: ${item.text}`}
+              className="w-[150px] h-[100px] pointer-events-auto"
+              style={{ visibility: item.link ? "visible" : "hidden" }}
+            />
+          ))}
+        </div>
       </div>
     </div>
-  </div>
   );
 }
