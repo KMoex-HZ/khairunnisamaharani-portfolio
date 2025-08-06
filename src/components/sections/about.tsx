@@ -42,7 +42,7 @@ const About = () => {
                 : 'opacity-0'
             }`}
           >
-            Hi, I'm <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Khairunnisa</span> Maharani
+            Hi, I&apos;m <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Khairunnisa</span> Maharani
           </h1>
           <h2
             className={`text-xl md:text-2xl text-gray-600 mb-6 transition-opacity duration-1000 ${
@@ -65,7 +65,7 @@ const About = () => {
         >
           <div className="p-8 md:p-12">
             <p className="text-lg text-gray-600 leading-relaxed mb-8 text-center max-w-4xl mx-auto">
-              I'm passionate about data science, artificial intelligence, and building impactful digital solutions. 
+              I&apos;m passionate about data science, artificial intelligence, and building impactful digital solutions. 
               My journey combines academic excellence with practical experience in technology and environmental sustainability.
             </p>
 
@@ -111,7 +111,7 @@ const About = () => {
                 Sinta 2 Publication
               </span>
               <span className="bg-gradient-to-r from-green-100 to-blue-100 text-green-800 px-4 py-2 rounded-full border border-green-200 shadow-sm text-sm font-medium">
-                Pertamina's Scholarship Awardee 2025
+                Pertamina&apos;s Scholarship Awardee 2025
               </span>
             </div>
           </div>

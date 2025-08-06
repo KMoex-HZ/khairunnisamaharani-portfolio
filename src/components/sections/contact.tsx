@@ -83,7 +83,7 @@ const Contact = () => {
             Get In Touch
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Feel free to reach out to me through any of the platforms below. I'm always open to opportunities, collaboration, or simply a chat.
+            Feel free to reach out to me through any of the platforms below. I&apos;m always open to opportunities, collaboration, or simply a chat.
           </p>
         </div>
 
@@ -165,7 +165,7 @@ const Contact = () => {
       <span className="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-full">Python</span>
     </div>
     <div className="mt-4 p-4 bg-gray-50 rounded-xl">
-      <p className="text-gray-600 text-sm italic text-center">"Turning data into insights, one algorithm at a time"</p>
+      <p className="text-gray-600 text-sm italic text-center">Turning data into insights, one algorithm at a time</p>
     </div>
   </div>
 </div>
@@ -182,7 +182,7 @@ const Contact = () => {
               Have a project in mind?
             </h3>
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Whether it's a data science project, web development, or design work, I'd love to hear about your ideas and see how we can work together.
+              Whether it&apos;s a data science project, web development, or design work, I&apos;d love to hear about your ideas and see how we can work together.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
