@@ -148,7 +148,7 @@ const HonorsAndAwards = () => {
               : "opacity-0"
           }`}
         >
-          <div className="inline-flex items-center space-x-8 bg-white rounded-2xl shadow-lg px-8 py-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 bg-white rounded-2xl shadow-lg px-6 py-6 text-center">
             <div className="flex items-center space-x-2">
               <Star className="w-5 h-5 text-yellow-500" />
               <span className="text-gray-700 font-medium">2 Major Awards</span>
