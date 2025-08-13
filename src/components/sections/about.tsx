@@ -43,7 +43,7 @@ const About = () => {
     >
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-5">
           {/* Tambahkan animasi di sini */}
           <div
             className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-6 transition-opacity duration-1000 ${
@@ -88,10 +88,11 @@ const About = () => {
         >
           <div className="p-8 md:p-12">
             <p className="text-lg text-gray-600 leading-relaxed mb-8 text-center max-w-4xl mx-auto">
-              I&apos;m passionate about data science, artificial intelligence,
-              and building impactful digital solutions. My journey combines
-              academic excellence with practical experience in technology and
-              environmental sustainability.
+              I&apos;m a Data Science student with a passion for using data to
+              build smart solutions. My skills range from analysis and
+              engineering to developing business intelligence. I use AI as a
+              tool for my coding projects and am excited to explore IoT and
+              automation in the future.
             </p>
 
             {/* Action Buttons */}
@@ -154,14 +155,14 @@ const About = () => {
               icon: <Database className="w-8 h-8" />,
               title: "Data Science",
               description:
-                "Analyzing complex datasets to extract meaningful insights and drive decision-making",
+                "Processing diverse datasets to find valuable insights and support decision-making",
               gradient: "from-blue-400 to-cyan-500",
             },
             {
               icon: <Code className="w-8 h-8" />,
               title: "AI & Technology",
               description:
-                "Building intelligent solutions and exploring cutting-edge technologies",
+                "Building digital solutions by leveraging technology, including AI as a development tool",
               gradient: "from-purple-400 to-pink-500",
             },
             {

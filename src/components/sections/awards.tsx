@@ -107,10 +107,48 @@ const HonorsAndAwards = () => {
                   >
                     {award.icon}
                   </div>
-                  <div className="text-right">
-                    <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
-                      {award.year}
-                    </span>
+
+                  <div className="flex items-center space-x-4">
+                    {/* Additional logos based on award type */}
+                    {award.id === 1 && (
+                      <div className="flex items-center space-x-3">
+                        {/* Pertamina Foundation Logo */}
+                        <div className="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center border border-gray-100">
+                          <img
+                            src="/images/pertamina-foundation-logo.jpeg"
+                            alt="Pertamina Foundation"
+                            className="w-12 h-12 object-contain"
+                          />
+                        </div>
+                        {/* Sobat Bumi Lampung Logo */}
+                        <div className="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center border border-gray-100">
+                          <img
+                            src="/images/sobat-bumi-lampung-logo.jpeg"
+                            alt="Sobat Bumi Lampung"
+                            className="w-12 h-12 object-contain"
+                          />
+                        </div>
+                      </div>
+                    )}
+
+                    {award.id === 2 && (
+                      <div className="flex items-center space-x-3">
+                        {/* BNSP Logo */}
+                        <div className="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center border border-gray-100">
+                          <img
+                            src="/images/bnsp-logo.png"
+                            alt="BNSP"
+                            className="w-12 h-12 object-contain"
+                          />
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="text-right">
+                      <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
+                        {award.year}
+                      </span>
+                    </div>
                   </div>
                 </div>
 

@@ -83,11 +83,12 @@ const Skills = () => {
               </span>
             </h1>
             <p className="text-lg leading-relaxed text-gray-600 max-w-3xl mx-auto">
-              I&apos;m a data science student who loves combining logic and
-              creativity. I enjoy building AI-powered tools, exploring trends
-              with Python & SQL, and making things visually satisfying with
-              Figma and TailwindCSS. I care about making things both useful and
-              beautiful.
+              I&apos;m a data science student with a background in Visual
+              Communication Design. I love combining logic and creativity to
+              solve problems. I enjoy exploring data with Python & SQL, and then
+              presenting it visually using Canva to make it clear and engaging.
+              My goal is to create solutions that are both functional and
+              beautifully crafted.
             </p>
           </div>
 
@@ -109,7 +110,12 @@ const Skills = () => {
               {
                 icon: <Palette className="w-6 h-6" />,
                 title: "Design",
-                skills: ["Figma", "UI/UX", "TailwindCSS", "Adobe"],
+                skills: [
+                  "CorelDRAW",
+                  "Adobe Illustrator",
+                  "Canva",
+                  "Graphic Design",
+                ],
                 gradient: "from-green-400 to-blue-500",
               },
               {
