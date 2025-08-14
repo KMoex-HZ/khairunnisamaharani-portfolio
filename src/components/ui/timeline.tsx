@@ -66,7 +66,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
           >
-            My Journey
+            My Experiences
           </motion.h2>
 
           {/* Deskripsi */}

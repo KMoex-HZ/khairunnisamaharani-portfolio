@@ -35,6 +35,16 @@ const HonorsAndAwards = () => {
       gradient: "from-green-400 to-blue-500",
     },
     {
+      id: 3,
+      title: "Gold & Silver Medalist",
+      subtitle: "National Science Competition (KSPI)",
+      year: "2024",
+      description:
+        "Achieved a Gold Medal in English and a Silver Medal in Mathematics at the national level, competing in the higher education category organized by Puskanas.id.",
+      icon: <Star className="w-8 h-8" />,
+      gradient: "from-purple-400 to-pink-500",
+    },
+    {
       id: 2,
       title: "Best Student Award",
       subtitle: "Multimedia Program",
@@ -43,6 +53,16 @@ const HonorsAndAwards = () => {
         "Recognized as the top-performing student in Multimedia Program at SMK N 1 Bandar Lampung for outstanding academic achievement.",
       icon: <Trophy className="w-8 h-8" />,
       gradient: "from-yellow-400 to-orange-500",
+    },
+    {
+      id: 4,
+      title: "BNSP Certified – Multimedia",
+      subtitle: "Professional Competency Certification",
+      year: "2023",
+      description:
+        "Earned professional certification from the National Professional Certification Agency (BNSP), validating expertise in multimedia production, editing, and content creation.",
+      icon: <Award className="w-8 h-8" />,
+      gradient: "from-slate-500 to-gray-900",
     },
   ];
 
@@ -136,6 +156,31 @@ const HonorsAndAwards = () => {
                         {/* BNSP Logo */}
                         <div className="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center border border-gray-100">
                           <img
+                            src="/images/smkn1.png"
+                            alt="BNSP"
+                            className="w-12 h-12 object-contain"
+                          />
+                        </div>
+                      </div>
+                    )}
+
+                    {award.id === 3 && (
+                      <div className="flex items-center space-x-3">
+                        {/* Puskanas Logo */}
+                        <div className="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center border border-gray-100">
+                          <img
+                            src="/images/puskanas-logo.png"
+                            alt="Puskanas.id"
+                            className="w-12 h-12 object-contain"
+                          />
+                        </div>
+                      </div>
+                    )}
+                    {award.id === 4 && (
+                      <div className="flex items-center space-x-3">
+                        {/* BNSP Logo */}
+                        <div className="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center border border-gray-100">
+                          <img
                             src="/images/bnsp-logo.png"
                             alt="BNSP"
                             className="w-12 h-12 object-contain"
@@ -189,7 +234,7 @@ const HonorsAndAwards = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 bg-white rounded-2xl shadow-lg px-6 py-6 text-center">
             <div className="flex items-center space-x-2">
               <Star className="w-5 h-5 text-yellow-500" />
-              <span className="text-gray-700 font-medium">2 Major Awards</span>
+              <span className="text-gray-700 font-medium">4 Major Awards</span>
             </div>
             <div className="w-px h-6 bg-gray-300" />
             <div className="flex items-center space-x-2">

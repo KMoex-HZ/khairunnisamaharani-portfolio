@@ -70,12 +70,51 @@ export const myExperiences = [
     images: ["/images/timeline/5.jpg", "/images/timeline/6.jpg"],
   },
   {
+    id: "kspi-winner-2024",
+    title: "Jul 2024",
+    content: (
+      <div className="text-neutral-700 dark:text-neutral-300">
+        <p className="text-3xl font-bold text-center text-gray-600 mb-2 text-gray-900">
+          Gold & Silver Medalist – KSPI 2024
+        </p>
+        <p className="text-gray-600 text-center md:text-lg">
+          Achieved a Gold Medal in English and a Silver Medal in Mathematics at
+          the 2024 National Science Student Competition (KSPI) for the higher
+          education level. The competition was held by the National Science
+          Competition Center (Puskanas.id).
+        </p>
+      </div>
+    ),
+    images: ["/images/timeline/b.png", "/images/timeline/m.jpg"],
+  },
+  {
+    id: "aiesec-delegate-2024",
+    title: "Dec 2024",
+    content: (
+      <div className="text-neutral-700 dark:text-neutral-300">
+        <p className="text-3xl font-bold text-center text-gray-600 mb-2 text-gray-900">
+          Delegate – AIESEC Impact Circle 10.0
+        </p>
+        <p className="text-gray-600 text-center md:text-lg">
+          Participated as a delegate in Impact Circle 10.0, an event held by
+          AIESEC in Unila. Focused on Sustainable Development Goal (SDG) 8,
+          engaging in workshops and discussions concerning decent work and
+          economic growth.
+        </p>
+      </div>
+    ),
+    images: [
+      "/images/timeline/aiesec_certificate.png",
+      "/images/timeline/aiesec_event.png",
+    ],
+  },
+  {
     id: "ai-website-training-2025",
     title: "Feb 2025",
     content: (
       <div className="text-neutral-700 dark:text-neutral-300">
         <p className="text-3xl font-bold text-center text-gray-600 mb-2 text-gray-900">
-          AI Web Training Facilitator - PKM-PM
+          AI Web Training Facilitator - PKM PM
         </p>
         <p className="text-gray-600 text-center md:text-lg">
           Conducted a community training program for vocational students on
@@ -131,7 +170,7 @@ export const myExperiences = [
     content: (
       <div className="text-neutral-700 dark:text-neutral-300">
         <p className="text-3xl font-bold text-center text-gray-600 mb-2 text-gray-900">
-          Konsumerz Mentoring
+          Konsumerz Mentoring - PKM PM
         </p>
         <p className="text-gray-600 text-center md:text-lg">
           Developed the front-end website using Next.js, designed the
