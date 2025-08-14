@@ -62,7 +62,7 @@ const HonorsAndAwards = () => {
       description:
         "Earned professional certification from the National Professional Certification Agency (BNSP), validating expertise in multimedia production, editing, and content creation.",
       icon: <Award className="w-8 h-8" />,
-      gradient: "from-slate-500 to-gray-900",
+      gradient: "from-blue-400 to-cyan-500",
     },
   ];
 
